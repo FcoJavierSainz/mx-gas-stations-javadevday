@@ -1,0 +1,10 @@
+server:
+  port: 8082
+db:
+  uri: jdbc:mysql://localhost:3306/gas_prices_db?allowPublicKeyRetrieval=true&user=root&password=admin&useSSL=false
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,prometheus

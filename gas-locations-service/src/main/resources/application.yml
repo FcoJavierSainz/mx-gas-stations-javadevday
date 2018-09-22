@@ -1,0 +1,12 @@
+server:
+  port: 8081
+spring:
+  data:
+    mongodb:
+      uri: mongodb://localhost/gasStations
+      database: gasStations
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,prometheus

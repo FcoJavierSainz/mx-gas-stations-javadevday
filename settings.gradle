@@ -1,0 +1,6 @@
+rootProject.name = 'reactive-workshop'
+include 'gas-locations-service'
+include 'app'
+include 'gas-prices-service'
+include 'gas-blocking'
+

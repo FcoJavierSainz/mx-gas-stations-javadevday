@@ -1,0 +1,46 @@
+buildscript {
+    ext {
+        springBootVersion = '2.0.5.RELEASE'
+    }
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+group = 'org.javadevday'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+    maven {
+        url 'https://oss.sonatype.org/content/groups/staging'
+    }
+}
+
+ext {
+    lombokVersion = '1.16.20'
+}
+
+dependencies {
+    compile('org.springframework.boot:spring-boot-starter-actuator')
+    compile('org.springframework.boot:spring-boot-starter-webflux')
+    compile("io.projectreactor.addons:reactor-extra")
+    compile('com.ibm.reactivecomponents:reactive-jpa:0.0.1-SNAPSHOT')
+    compile('io.github.resilience4j:resilience4j-reactor:0.13.1')
+    compile('io.github.resilience4j:resilience4j-circuitbreaker:0.13.1')
+    compile('mysql:mysql-connector-java:8.0.12')
+    compile('io.micrometer:micrometer-registry-prometheus')
+
+    compileOnly("org.projectlombok:lombok:${lombokVersion}")
+    testCompile('org.springframework.boot:spring-boot-starter-test')
+    testCompile('io.projectreactor:reactor-test')
+}
