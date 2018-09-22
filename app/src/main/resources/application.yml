@@ -5,7 +5,7 @@ app:
     url: http://localhost:8082/api/v1/prices
   maps:
     url: https://maps.googleapis.com/maps/api/distancematrix/json
-    api-key: AIzaSyAdneq-2fPIAszbXOhKOu62mdjpGTmwX74
+    api-key: <My Google maps key>
 management:
   endpoints:
     web:
