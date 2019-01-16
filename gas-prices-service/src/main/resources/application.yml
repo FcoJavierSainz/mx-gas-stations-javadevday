@@ -1,7 +1,7 @@
 server:
   port: 8082
 db:
-  uri: jdbc:mysql://localhost:3306/gas_prices_db?allowPublicKeyRetrieval=true&user=root&password=admin&useSSL=false
+  uri: jdbc:mysql://prices-db:3306/gas_prices_db?allowPublicKeyRetrieval=true&user=root&password=admin&useSSL=false
 
 management:
   endpoints:

@@ -1,0 +1,69 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: gas-prices-service
+spec:
+  type: LoadBalancer
+  selector:
+    app: gas-prices-service
+  ports:
+  - protocol: TCP
+    name: http
+    port: 8082
+    targetPort: 8082
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: gas-prices-service
+  labels:
+    app: gas-prices-service
+spec:
+  selector:
+    matchLabels:
+      app: gas-prices-service
+  replicas: 1
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+  minReadySeconds: 5
+  revisionHistoryLimit: 10
+  template:
+    metadata:
+      name: gas-prices-service
+      labels:
+        app: gas-prices-service
+        version: "latest"
+    spec:
+      containers:
+      - name: gas-prices-service
+        image: jsainz/gas-prices-service
+        resources:
+          limits:
+            memory: "512Mi"
+          requests:
+            memory: "256Mi"
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 8082
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: gas-prices-service-ingress
+  annotations:
+    kubernetes.io/ingress.allow-http: "true"
+    ingress.kubernetes.io/client_max_body_size: 100m
+    nginx.org/client-max-body-size: 100m
+    ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+  - host:
+    http:
+      paths:
+      - path: /gas-prices-service
+        backend:
+          serviceName: gas-prices-service
+          servicePort: 8082

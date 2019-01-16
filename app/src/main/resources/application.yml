@@ -1,11 +1,11 @@
 app:
   locations:
-    url: http://localhost:8081/api/v1/locations/near
+    url: http://gas-locations-service:8081/api/v1/locations/near
   prices:
-    url: http://localhost:8082/api/v1/prices
+    url: http://gas-prices-service:8082/api/v1/prices
   maps:
     url: https://maps.googleapis.com/maps/api/distancematrix/json
-    api-key: <My Google maps key>
+    api-key: ${GOOGLE_KEY:}
 management:
   endpoints:
     web:

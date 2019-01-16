@@ -3,7 +3,7 @@ server:
 spring:
   data:
     mongodb:
-      uri: mongodb://localhost/gasStations
+      uri: mongodb://mongo/gasStations
       database: gasStations
 management:
   endpoints:

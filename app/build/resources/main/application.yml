@@ -1,6 +1,13 @@
 app:
+  locations:
+    url: http://gas-locations-service:8081/api/v1/locations/near
+  prices:
+    url: http://gas-prices-service:8082/api/v1/prices
   maps:
     url: https://maps.googleapis.com/maps/api/distancematrix/json
-logging:
-  level:
-    ROOT: DEBUG
+    api-key: ${GOOGLE_KEY:}
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,prometheus
