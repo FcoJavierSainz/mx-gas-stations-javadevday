@@ -1,0 +1,7 @@
+#!/bin/bash
+
+docker push jsainz/gas-stations-data
+docker push jsainz/prices-db
+docker push jsainz/gas-prices-service
+docker push jsainz/gas-locations-service
+docker push jsainz/app

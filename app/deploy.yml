@@ -84,4 +84,4 @@ metadata:
   name: maps
 type: Opaque
 data:
-  GOOGLE_KEY: QUl6YVN5QkY3UnpRZGRFN0Jwc1BkTy1NOG9Gbll6MENyVVZOVjRr
+  GOOGLE_KEY: <API_KEY>

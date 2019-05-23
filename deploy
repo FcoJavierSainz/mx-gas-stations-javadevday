@@ -1,0 +1,9 @@
+#!/bin/bash
+
+kubectl create -f mongo-gas-stations/volume.yml
+kubectl create -f prices-db/volume.yml
+kubectl create -f mongo-gas-stations/deploy.yml
+kubectl create -f prices-db/deploy.yml
+kubectl create -f gas-prices-service/deploy.yml
+kubectl create -f gas-locations-service/deploy.yml
+kubectl create -f app/deploy.yml

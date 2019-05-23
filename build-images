@@ -1,0 +1,7 @@
+#!/bin/bash
+
+docker build mongo-gas-stations -t jsainz/gas-stations-data
+docker build prices-db -t jsainz/prices-db
+docker build gas-prices-service -t jsainz/gas-prices-service
+docker build gas-locations-service -t jsainz/gas-locations-service
+docker build app -t jsainz/app
